@@ -1,0 +1,27 @@
+{
+  "id": "/kapua-sql",
+  "cmd": null,
+  "cpus": 1,
+  "mem": 128,
+  "disk": 0,
+  "instances": 1,
+  "acceptedResourceRoles": [
+    "slave_public"
+  ],
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "forcePullImage": false,
+      "image": "kapua/kapua-sql:0.3.2",
+      "parameters": [],
+      "privileged": false
+    },
+    "volumes": []
+  },
+  "portDefinitions": [
+    {
+      "port": 10000,
+      "protocol": "tcp"
+    }
+  ]
+}
