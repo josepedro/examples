@@ -1,7 +1,7 @@
 # How to use Kapua on DC/OS
 
 ## Install Kapua
-
+```json
 {
   "id": "/kapua-api",
   "cmd": "docker run --link /friendly_leakey:db --link /mystifying_babbage:broker --link /gifted_kowalevski:es --env commons.db.schema.update=true -p 8081:8080 kapua/kapua-api:0.3.2",
@@ -19,7 +19,9 @@
     }
   ]
 }
+```
 
+```json
 {
   "id": "/kapua-broker",
   "cmd": "docker run --link /unruffled_dijkstra:db --link /gifted_kowalevski:es --env commons.db.schema.update=true -p 1883:1883 -p 61614:61614 kapua/kapua-broker:0.3.2",
@@ -51,7 +53,9 @@
   ],
   "portDefinitions": []
 }
+```
 
+```json
 {
   "id": "/kapua-console",
   "cmd": "docker run --link /friendly_leakey:db --link /mystifying_babbage:broker --link /gifted_kowalevski:es --env commons.db.schema.update=true -p 8080:8080 kapua/kapua-console:0.3.2",
@@ -83,8 +87,8 @@
   ],
   "portDefinitions": []
 }
-
-
+```
+```json
 {
   "id": "/kapua-elasticsearch",
   "cmd": "docker run -p 9200:9200 -p 9300:9300 elasticsearch:5.4.0 -Ecluster.name=kapua-datastore -Ediscovery.type=single-node -Etransport.host=_site_ -Etransport.ping_schedule=-1 -Etransport.tcp.connect_timeout=30s",
@@ -116,8 +120,9 @@
   ],
   "portDefinitions": []
 }
+```
 
-
+```json
 {
   "id": "/kapua-sql",
   "cmd": "docker run -p 8181:8181 -p 3306:3306 kapua/kapua-sql:0.3.2\n",
@@ -149,7 +154,7 @@
   ],
   "portDefinitions": []
 }
-
+```
 
 on public slave:
 
